@@ -12,4 +12,10 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
+    #import <CoreLocation/CoreLocation.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <RestKit/RestKit.h>
+    #import <PKRevealController/PKRevealController.h>
+    #import "CLWeatherCenter.h"
 #endif
