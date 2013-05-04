@@ -19,6 +19,7 @@
 @interface CLTermoView () 
 
 @property (nonatomic, strong) CAShapeLayer *circle;
+@property (nonatomic, strong) CAShapeLayer *shadow;
 @property (nonatomic, strong) UIImage *termoSpectrum;
 @property (nonatomic, strong) CLAnimatedLabel *tempLabel;
 
@@ -46,30 +47,46 @@
     
     int radius = self.frame.size.width / 2;
     _circle = [CAShapeLayer layer];
+    
     // Make a circular shape
-    UIBezierPath *aPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius)
-                                                         radius:radius - 10
+    UIBezierPath *circlePath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius)
+                                                         radius:radius - 12
                                                      startAngle:DEGREES_TO_RADIANS(-90)
                                                        endAngle:DEGREES_TO_RADIANS(270)
                                                       clockwise:NO];
     
-    _circle.path = [aPath CGPath];
-    
     // Configure the apperence of the circle
+    _circle.path = [circlePath CGPath];
     _circle.fillColor = [UIColor clearColor].CGColor;
     _circle.strokeColor = [UIColor blueColor].CGColor;
     _circle.lineWidth = 20;
     _circle.strokeEnd = 0.0;
-    // Add to parent layer
-    [self.layer addSublayer:_circle];
     
+
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius+1, radius+1)
+                                                              radius:radius - 12
+                                                          startAngle:DEGREES_TO_RADIANS(-90)
+                                                            endAngle:DEGREES_TO_RADIANS(270)
+                                                           clockwise:NO];
+
+    _shadow = [CAShapeLayer layer];
+    _shadow.path = [shadowPath CGPath];
+    _shadow.fillColor = [UIColor clearColor].CGColor;
+    _shadow.strokeColor = [UIColor blackColor].CGColor;
+    _shadow.lineWidth = 20;
+    _shadow.strokeEnd = 0.0;
+    
+    // Add to parent layer
+    [self.layer addSublayer:_shadow];
+    [self.layer addSublayer:_circle];
+
+    // Add text label
     _tempLabel = [[CLAnimatedLabel alloc] initWithFrame:self.bounds];
     _tempLabel.backgroundColor = [UIColor clearColor];
     _tempLabel.textAlignment = NSTextAlignmentCenter;
 
     [self addSubview:_tempLabel];
     
-
     _temperature = -40;
     _tempLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:45];
 }
@@ -137,6 +154,7 @@
     
     // Add the animation to the circle
     [_circle addAnimation:drawAnimation forKey:@"drawCircleAnimation"];
+    [_shadow addAnimation:drawAnimation forKey:@"drawShadowAnimation"];
     [_circle addAnimation:colorAnimation forKey:@"flashStrokeColor"];
     [_tempLabel.textLayer addAnimation:textColorAnimation forKey:@"flashTextColor"];
 }
