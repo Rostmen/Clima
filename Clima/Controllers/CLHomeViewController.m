@@ -7,6 +7,7 @@
 //
 
 #import "CLHomeViewController.h"
+#import "CLTermoView.h"
 
 @interface CLHomeViewController ()
 
@@ -37,6 +38,19 @@
                                                                                 target:self
                                                                                 action:@selector(showLeftView:)];
     }
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weatherChanged:) name:WeatherDidChangeNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)showLeftView:(id)sender
@@ -55,6 +69,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)changeTemperature:(UISlider *)sender {
+    [_termoView setTemperature:sender.value];
+}
+
+- (IBAction)checkWeather:(UITapGestureRecognizer *)sender {
+    [[CLWeatherCenter service] update];
+}
+
+- (void)weatherChanged:(NSNotification *)notification {
+    CLWeather *weather = (CLWeather *)notification.object;
+    _termoView.temperature = weather.temp.floatValue - 273.15;
+    _locationLabel.text = [NSString stringWithFormat:@"%@, %@", weather.city, weather.country];
 }
 
 @end

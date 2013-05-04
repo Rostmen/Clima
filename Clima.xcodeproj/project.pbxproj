@@ -33,11 +33,18 @@
 		84065F0117342C7F0087F6C0 /* color_spectrum.png in Resources */ = {isa = PBXBuildFile; fileRef = 84065EEC17342C7F0087F6C0 /* color_spectrum.png */; };
 		84065F0217342C7F0087F6C0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 84065EED17342C7F0087F6C0 /* logo.png */; };
 		84065F0317342C7F0087F6C0 /* menu_separator_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 84065EEE17342C7F0087F6C0 /* menu_separator_line.png */; };
-		84065F0517342C7F0087F6C0 /* color_spectrum@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84065EF017342C7F0087F6C0 /* color_spectrum@2x.png */; };
 		84065F0617342C7F0087F6C0 /* menu_separator_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84065EF117342C7F0087F6C0 /* menu_separator_line@2x.png */; };
 		84065F0717342C7F0087F6C0 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84065EF217342C7F0087F6C0 /* logo@2x.png */; };
 		84065F0817342C7F0087F6C0 /* barbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84065EF317342C7F0087F6C0 /* barbutton@2x.png */; };
 		84065F0917342C7F0087F6C0 /* barbutton_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84065EF417342C7F0087F6C0 /* barbutton_@2x.png */; };
+		84065F0D173442180087F6C0 /* CLTermoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84065F0C173442180087F6C0 /* CLTermoView.m */; };
+		84065F1017345E6E0087F6C0 /* UIImage+Picker.m in Sources */ = {isa = PBXBuildFile; fileRef = 84065F0F17345E6E0087F6C0 /* UIImage+Picker.m */; };
+		84065F131734810C0087F6C0 /* CLAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84065F121734810C0087F6C0 /* CLAnimatedLabel.m */; };
+		84065F1917348AEE0087F6C0 /* AUIAnimatableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84065F1817348AEE0087F6C0 /* AUIAnimatableLabel.m */; };
+		84065F1C17348BD60087F6C0 /* UIFont+CoreTextExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84065F1B17348BD60087F6C0 /* UIFont+CoreTextExtensions.m */; };
+		84065F1E17348C190087F6C0 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F1D17348C190087F6C0 /* CoreText.framework */; };
+		84065F221734989A0087F6C0 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F201734989A0087F6C0 /* libTestFlight.a */; };
+		84065F241734992E0087F6C0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F231734992E0087F6C0 /* libz.dylib */; };
 		84F4793517340CDE00DF690E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793417340CDE00DF690E /* UIKit.framework */; };
 		84F4793717340CDE00DF690E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793617340CDE00DF690E /* Foundation.framework */; };
 		84F4793917340CDE00DF690E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793817340CDE00DF690E /* CoreGraphics.framework */; };
@@ -86,11 +93,24 @@
 		84065EEC17342C7F0087F6C0 /* color_spectrum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color_spectrum.png; sourceTree = "<group>"; };
 		84065EED17342C7F0087F6C0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		84065EEE17342C7F0087F6C0 /* menu_separator_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_separator_line.png; sourceTree = "<group>"; };
-		84065EF017342C7F0087F6C0 /* color_spectrum@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color_spectrum@2x.png"; sourceTree = "<group>"; };
 		84065EF117342C7F0087F6C0 /* menu_separator_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_separator_line@2x.png"; sourceTree = "<group>"; };
 		84065EF217342C7F0087F6C0 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		84065EF317342C7F0087F6C0 /* barbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton@2x.png"; sourceTree = "<group>"; };
 		84065EF417342C7F0087F6C0 /* barbutton_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton_@2x.png"; sourceTree = "<group>"; };
+		84065F0B173442180087F6C0 /* CLTermoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTermoView.h; path = TermoView/CLTermoView.h; sourceTree = "<group>"; };
+		84065F0C173442180087F6C0 /* CLTermoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTermoView.m; path = TermoView/CLTermoView.m; sourceTree = "<group>"; };
+		84065F0E17345E6E0087F6C0 /* UIImage+Picker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Picker.h"; path = "TermoView/UIImage+Picker.h"; sourceTree = "<group>"; };
+		84065F0F17345E6E0087F6C0 /* UIImage+Picker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Picker.m"; path = "TermoView/UIImage+Picker.m"; sourceTree = "<group>"; };
+		84065F111734810C0087F6C0 /* CLAnimatedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLAnimatedLabel.h; path = TermoView/CLAnimatedLabel.h; sourceTree = "<group>"; };
+		84065F121734810C0087F6C0 /* CLAnimatedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLAnimatedLabel.m; path = TermoView/CLAnimatedLabel.m; sourceTree = "<group>"; };
+		84065F1717348AEE0087F6C0 /* AUIAnimatableLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AUIAnimatableLabel.h; path = TermoView/AUIAnimatableLabel.h; sourceTree = "<group>"; };
+		84065F1817348AEE0087F6C0 /* AUIAnimatableLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AUIAnimatableLabel.m; path = TermoView/AUIAnimatableLabel.m; sourceTree = "<group>"; };
+		84065F1A17348BD60087F6C0 /* UIFont+CoreTextExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+CoreTextExtensions.h"; path = "TermoView/UIFont+CoreTextExtensions.h"; sourceTree = "<group>"; };
+		84065F1B17348BD60087F6C0 /* UIFont+CoreTextExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+CoreTextExtensions.m"; path = "TermoView/UIFont+CoreTextExtensions.m"; sourceTree = "<group>"; };
+		84065F1D17348C190087F6C0 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		84065F201734989A0087F6C0 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		84065F211734989A0087F6C0 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		84065F231734992E0087F6C0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		84F4793117340CDE00DF690E /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4793417340CDE00DF690E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84F4793617340CDE00DF690E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,6 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84065F241734992E0087F6C0 /* libz.dylib in Frameworks */,
+				84065F1E17348C190087F6C0 /* CoreText.framework in Frameworks */,
 				84065ECF173424110087F6C0 /* MobileCoreServices.framework in Frameworks */,
 				84065ECD1734240B0087F6C0 /* SystemConfiguration.framework in Frameworks */,
 				84065ECB1734167D0087F6C0 /* CoreLocation.framework in Frameworks */,
@@ -121,6 +143,7 @@
 				84F4793917340CDE00DF690E /* CoreGraphics.framework in Frameworks */,
 				84F4793B17340CDE00DF690E /* CoreData.framework in Frameworks */,
 				F3C2396A03B042DC89456EBD /* libPods.a in Frameworks */,
+				84065F221734989A0087F6C0 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +198,6 @@
 				84065EEC17342C7F0087F6C0 /* color_spectrum.png */,
 				84065EED17342C7F0087F6C0 /* logo.png */,
 				84065EEE17342C7F0087F6C0 /* menu_separator_line.png */,
-				84065EF017342C7F0087F6C0 /* color_spectrum@2x.png */,
 				84065EF117342C7F0087F6C0 /* menu_separator_line@2x.png */,
 				84065EF217342C7F0087F6C0 /* logo@2x.png */,
 				84065EF317342C7F0087F6C0 /* barbutton@2x.png */,
@@ -201,6 +223,32 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
+		84065F0A173441F00087F6C0 /* TermoView */ = {
+			isa = PBXGroup;
+			children = (
+				84065F1A17348BD60087F6C0 /* UIFont+CoreTextExtensions.h */,
+				84065F1B17348BD60087F6C0 /* UIFont+CoreTextExtensions.m */,
+				84065F1717348AEE0087F6C0 /* AUIAnimatableLabel.h */,
+				84065F1817348AEE0087F6C0 /* AUIAnimatableLabel.m */,
+				84065F0B173442180087F6C0 /* CLTermoView.h */,
+				84065F0C173442180087F6C0 /* CLTermoView.m */,
+				84065F0E17345E6E0087F6C0 /* UIImage+Picker.h */,
+				84065F0F17345E6E0087F6C0 /* UIImage+Picker.m */,
+				84065F111734810C0087F6C0 /* CLAnimatedLabel.h */,
+				84065F121734810C0087F6C0 /* CLAnimatedLabel.m */,
+			);
+			name = TermoView;
+			sourceTree = "<group>";
+		};
+		84065F1F173498990087F6C0 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				84065F201734989A0087F6C0 /* libTestFlight.a */,
+				84065F211734989A0087F6C0 /* TestFlight.h */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
 		84F4792817340CDE00DF690E = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +272,8 @@
 		84F4793317340CDE00DF690E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84065F231734992E0087F6C0 /* libz.dylib */,
+				84065F1D17348C190087F6C0 /* CoreText.framework */,
 				84065ECE173424110087F6C0 /* MobileCoreServices.framework */,
 				84065ECC1734240B0087F6C0 /* SystemConfiguration.framework */,
 				84065ECA1734167D0087F6C0 /* CoreLocation.framework */,
@@ -239,6 +289,8 @@
 		84F4793C17340CDE00DF690E /* Clima */ = {
 			isa = PBXGroup;
 			children = (
+				84065F1F173498990087F6C0 /* TestFlight */,
+				84065F0A173441F00087F6C0 /* TermoView */,
 				84065ED6173426EF0087F6C0 /* Prototype Cells */,
 				84065EBF1734120A0087F6C0 /* WeatherCenter */,
 				84065EC21734120A0087F6C0 /* Controllers */,
@@ -341,7 +393,6 @@
 				84065F0117342C7F0087F6C0 /* color_spectrum.png in Resources */,
 				84065F0217342C7F0087F6C0 /* logo.png in Resources */,
 				84065F0317342C7F0087F6C0 /* menu_separator_line.png in Resources */,
-				84065F0517342C7F0087F6C0 /* color_spectrum@2x.png in Resources */,
 				84065F0617342C7F0087F6C0 /* menu_separator_line@2x.png in Resources */,
 				84065F0717342C7F0087F6C0 /* logo@2x.png in Resources */,
 				84065F0817342C7F0087F6C0 /* barbutton@2x.png in Resources */,
@@ -381,6 +432,11 @@
 				84065EC9173412700087F6C0 /* CLWeather.m in Sources */,
 				84065ED5173425320087F6C0 /* CLMenuController.m in Sources */,
 				84065ED9173427030087F6C0 /* CLMenuCell.m in Sources */,
+				84065F0D173442180087F6C0 /* CLTermoView.m in Sources */,
+				84065F1017345E6E0087F6C0 /* UIImage+Picker.m in Sources */,
+				84065F131734810C0087F6C0 /* CLAnimatedLabel.m in Sources */,
+				84065F1917348AEE0087F6C0 /* AUIAnimatableLabel.m in Sources */,
+				84065F1C17348BD60087F6C0 /* UIFont+CoreTextExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +518,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clima/Clima-Prefix.pch";
 				INFOPLIST_FILE = "Clima/Clima-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Clima/TestFlight\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "C2BE5857-B8BB-4F3C-A641-718F4CBEA5F5";
 				WRAPPER_EXTENSION = app;
@@ -472,12 +532,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0CFF9F6F25684E88AC3C47B0 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Harvey Jones (3GEX58NA2X)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Harvey Jones (4NJS9XAF6A)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Clima/Clima-Prefix.pch";
 				INFOPLIST_FILE = "Clima/Clima-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Clima/TestFlight\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C2BE5857-B8BB-4F3C-A641-718F4CBEA5F5";
+				PROVISIONING_PROFILE = "C89AB8CA-9CC0-4C9B-84FD-041AA036D864";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

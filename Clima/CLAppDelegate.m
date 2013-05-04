@@ -7,12 +7,14 @@
 //
 
 #import "CLAppDelegate.h"
-
+#import "TestFlight.h"
 
 @implementation CLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [TestFlight takeOff:@"775460fc-c740-4d49-bc8a-a84744b4d14a"];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard_iphone"
                                                          bundle:nil];

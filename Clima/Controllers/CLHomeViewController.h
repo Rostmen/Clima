@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class CLTermoView;
+
 @interface CLHomeViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet CLTermoView *termoView;
+- (IBAction)changeTemperature:(UISlider *)sender;
+- (IBAction)checkWeather:(UITapGestureRecognizer *)sender;
 
 @end

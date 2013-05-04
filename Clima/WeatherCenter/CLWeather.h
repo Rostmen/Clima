@@ -24,6 +24,9 @@
 //City name
 @property (nonatomic, strong) NSString *city;
 
+//Country
+@property (nonatomic, strong) NSString *country;
+
 // Humidity in %
 @property (nonatomic, strong) NSNumber *humidity;
 

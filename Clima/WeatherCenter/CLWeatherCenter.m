@@ -11,6 +11,8 @@
 NSString *const WeatherApiPoint = @"http://api.openweathermap.org/data/2.5/";
 NSTimeInterval const WeatherApiTimeout = 10;
 
+NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
+
 @interface CLWeatherCenter () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -53,6 +55,7 @@ NSTimeInterval const WeatherApiTimeout = 10;
     [weatherMapping addAttributeMappingsFromDictionary:
      @{
         @"name":            @"city",
+        @"sys.country":     @"country",
         @"main.temp":       @"temp",
         @"main.humidity":   @"humidity",
         @"main.temp_min":   @"temp_min",
@@ -123,12 +126,15 @@ NSTimeInterval const WeatherApiTimeout = 10;
             NSLog(@"Too often times shooting at weather api!");
             return;
         }
+    } else {
+        _lastWeather = [CLWeather new];
+        _lastWeather.date = @([[NSDate date] timeIntervalSince1970]);
     }
     
     
     NSDictionary *params = @{
                              @"lat": @(location.latitude),
-                             @"lon": @(location.latitude),
+                             @"lon": @(location.longitude),
                              @"lang": @"en"
                             };
     
@@ -136,6 +142,7 @@ NSTimeInterval const WeatherApiTimeout = 10;
 
         _lastWeather = [mappingResult firstObject];
         NSLog(@"%@", _lastWeather);
+        [[NSNotificationCenter defaultCenter] postNotificationName:WeatherDidChangeNotification object:_lastWeather userInfo:nil];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Weather is not received!");
     }];

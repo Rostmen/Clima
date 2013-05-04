@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CLWeather.h"
 
+extern NSString *const WeatherDidChangeNotification;
+
 @interface CLWeatherCenter : NSObject
 
 + (CLWeatherCenter *)service;
