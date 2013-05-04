@@ -55,4 +55,8 @@
 // Snow Precipitation volume mm per 3 hours
 @property (nonatomic, strong) NSNumber *snow;
 
+// City location
+@property (nonatomic, strong) NSNumber *lon;
+@property (nonatomic, strong) NSNumber *lat;
+
 @end

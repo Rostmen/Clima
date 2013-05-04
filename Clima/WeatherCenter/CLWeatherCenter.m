@@ -70,7 +70,9 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
         @"rain.3h":         @"rain",
         @"snow.3h":         @"snow",
         @"dt":              @"date",
-        @"id":              @"city_id"
+        @"id":              @"city_id",
+        @"coord.lat":       @"lat",
+        @"coord.lon":       @"lon"
      }
     ];
     
@@ -160,8 +162,33 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
     }];
 }
 
+- (void)searchWeather:(NSString *)query
+              success:(CLWeatherCenterSuccess)success {
+    
+    NSDictionary *params = @{
+                             @"q": query,
+                             @"lang": @"en"
+                            };
+    
+    [[RKObjectManager sharedManager] getObject:nil path:@"weather" parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+        CLWeather *weather = [mappingResult firstObject];
+        
+        if (success) success(weather);
+        
+        [_tracker sendEventWithCategory:@"Weather API"
+                             withAction:@"Find weather"
+                              withLabel:nil
+                              withValue:nil];
+        
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Weather is not received!");
+        [_tracker sendException:NO withNSError:error];
+    }];
+}
+
 - (void)update {
-    [self updateByLocation:_lastLocation.coordinate];
+    if (_lastLocation)
+        [self updateByLocation:_lastLocation.coordinate];
 }
 
 #pragma mark - Sound

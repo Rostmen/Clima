@@ -11,6 +11,8 @@
 
 extern NSString *const WeatherDidChangeNotification;
 
+typedef void (^CLWeatherCenterSuccess)(CLWeather *weather);
+
 @interface CLWeatherCenter : NSObject
 
 + (CLWeatherCenter *)service;
@@ -19,6 +21,8 @@ extern NSString *const WeatherDidChangeNotification;
 @property (nonatomic, strong) CLWeather *lastWeather;
 
 - (void)update;
+- (void)searchWeather:(NSString *)query
+              success:(CLWeatherCenterSuccess)success;
 + (void)playSound: (NSString *)name;
 
 @end

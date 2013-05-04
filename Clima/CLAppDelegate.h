@@ -11,7 +11,7 @@
 @interface CLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) PKRevealController *revealController;
+
 
 - (NSURL *)applicationDocumentsDirectory;
 

@@ -48,6 +48,14 @@
 		84065F271735253D0087F6C0 /* Sonar.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 84065F261735253D0087F6C0 /* Sonar.m4r */; };
 		84065F291735266E0087F6C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F281735266E0087F6C0 /* AudioToolbox.framework */; };
 		84065F33173532C60087F6C0 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F31173532C60087F6C0 /* libGoogleAnalytics.a */; };
+		8438B99B17356CC5001F7426 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8438B99A17356CC5001F7426 /* MapKit.framework */; };
+		8438B99E17356DBE001F7426 /* CLSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438B99D17356DBE001F7426 /* CLSearchViewController.m */; };
+		8438B9A217356FF3001F7426 /* CLRevealSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438B9A117356FF3001F7426 /* CLRevealSegue.m */; };
+		8438B9A717357C9D001F7426 /* ic_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9A317357C9D001F7426 /* ic_search.png */; };
+		8438B9A817357C9D001F7426 /* map_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9A417357C9D001F7426 /* map_pin.png */; };
+		8438B9A917357C9D001F7426 /* ic_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9A517357C9D001F7426 /* ic_search@2x.png */; };
+		8438B9AA17357C9D001F7426 /* map_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9A617357C9D001F7426 /* map_pin@2x.png */; };
+		8438B9AE173582A8001F7426 /* CLMyLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438B9AD173582A8001F7426 /* CLMyLocation.m */; };
 		84F4793517340CDE00DF690E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793417340CDE00DF690E /* UIKit.framework */; };
 		84F4793717340CDE00DF690E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793617340CDE00DF690E /* Foundation.framework */; };
 		84F4793917340CDE00DF690E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793817340CDE00DF690E /* CoreGraphics.framework */; };
@@ -122,6 +130,17 @@
 		84065F2F173532C60087F6C0 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
 		84065F30173532C60087F6C0 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
 		84065F31173532C60087F6C0 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		8438B99A17356CC5001F7426 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8438B99C17356DBE001F7426 /* CLSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSearchViewController.h; sourceTree = "<group>"; };
+		8438B99D17356DBE001F7426 /* CLSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSearchViewController.m; sourceTree = "<group>"; };
+		8438B9A017356FF3001F7426 /* CLRevealSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLRevealSegue.h; path = Segues/CLRevealSegue.h; sourceTree = "<group>"; };
+		8438B9A117356FF3001F7426 /* CLRevealSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLRevealSegue.m; path = Segues/CLRevealSegue.m; sourceTree = "<group>"; };
+		8438B9A317357C9D001F7426 /* ic_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_search.png; sourceTree = "<group>"; };
+		8438B9A417357C9D001F7426 /* map_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin.png; sourceTree = "<group>"; };
+		8438B9A517357C9D001F7426 /* ic_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_search@2x.png"; sourceTree = "<group>"; };
+		8438B9A617357C9D001F7426 /* map_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pin@2x.png"; sourceTree = "<group>"; };
+		8438B9AC173582A8001F7426 /* CLMyLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMyLocation.h; path = Map/CLMyLocation.h; sourceTree = "<group>"; };
+		8438B9AD173582A8001F7426 /* CLMyLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMyLocation.m; path = Map/CLMyLocation.m; sourceTree = "<group>"; };
 		84F4793117340CDE00DF690E /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4793417340CDE00DF690E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84F4793617340CDE00DF690E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8438B99B17356CC5001F7426 /* MapKit.framework in Frameworks */,
 				84065F291735266E0087F6C0 /* AudioToolbox.framework in Frameworks */,
 				84065F241734992E0087F6C0 /* libz.dylib in Frameworks */,
 				84065F1E17348C190087F6C0 /* CoreText.framework in Frameworks */,
@@ -177,9 +197,11 @@
 		84065EC21734120A0087F6C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				84065ED21734251A0087F6C0 /* Reveal */,
 				84065EC31734120A0087F6C0 /* CLHomeViewController.h */,
 				84065EC41734120A0087F6C0 /* CLHomeViewController.m */,
+				84065ED21734251A0087F6C0 /* Reveal */,
+				8438B99C17356DBE001F7426 /* CLSearchViewController.h */,
+				8438B99D17356DBE001F7426 /* CLSearchViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,6 +244,10 @@
 		84065EDF17342C7F0087F6C0 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				8438B9A317357C9D001F7426 /* ic_search.png */,
+				8438B9A417357C9D001F7426 /* map_pin.png */,
+				8438B9A517357C9D001F7426 /* ic_search@2x.png */,
+				8438B9A617357C9D001F7426 /* map_pin@2x.png */,
 				84065EE017342C7F0087F6C0 /* ic_menu_friends.png */,
 				84065EE117342C7F0087F6C0 /* ic_menu_friends@2x.png */,
 				84065EE217342C7F0087F6C0 /* ic_menu_globe.png */,
@@ -291,6 +317,24 @@
 			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
+		8438B99F17356FD3001F7426 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				8438B9A017356FF3001F7426 /* CLRevealSegue.h */,
+				8438B9A117356FF3001F7426 /* CLRevealSegue.m */,
+			);
+			name = Segues;
+			sourceTree = "<group>";
+		};
+		8438B9AB1735827E001F7426 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8438B9AC173582A8001F7426 /* CLMyLocation.h */,
+				8438B9AD173582A8001F7426 /* CLMyLocation.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		84F4792817340CDE00DF690E = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +358,7 @@
 		84F4793317340CDE00DF690E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8438B99A17356CC5001F7426 /* MapKit.framework */,
 				84065F281735266E0087F6C0 /* AudioToolbox.framework */,
 				84065F231734992E0087F6C0 /* libz.dylib */,
 				84065F1D17348C190087F6C0 /* CoreText.framework */,
@@ -332,6 +377,8 @@
 		84F4793C17340CDE00DF690E /* Clima */ = {
 			isa = PBXGroup;
 			children = (
+				8438B9AB1735827E001F7426 /* Map */,
+				8438B99F17356FD3001F7426 /* Segues */,
 				84065F2A173532C60087F6C0 /* Google */,
 				84065F1F173498990087F6C0 /* TestFlight */,
 				84065F0A173441F00087F6C0 /* TermoView */,
@@ -443,6 +490,10 @@
 				84065F0817342C7F0087F6C0 /* barbutton@2x.png in Resources */,
 				84065F0917342C7F0087F6C0 /* barbutton_@2x.png in Resources */,
 				84065F271735253D0087F6C0 /* Sonar.m4r in Resources */,
+				8438B9A717357C9D001F7426 /* ic_search.png in Resources */,
+				8438B9A817357C9D001F7426 /* map_pin.png in Resources */,
+				8438B9A917357C9D001F7426 /* ic_search@2x.png in Resources */,
+				8438B9AA17357C9D001F7426 /* map_pin@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +534,9 @@
 				84065F131734810C0087F6C0 /* CLAnimatedLabel.m in Sources */,
 				84065F1917348AEE0087F6C0 /* AUIAnimatableLabel.m in Sources */,
 				84065F1C17348BD60087F6C0 /* UIFont+CoreTextExtensions.m in Sources */,
+				8438B99E17356DBE001F7426 /* CLSearchViewController.m in Sources */,
+				8438B9A217356FF3001F7426 /* CLRevealSegue.m in Sources */,
+				8438B9AE173582A8001F7426 /* CLMyLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    // TestFlight Analytics
     [TestFlight takeOff:@"775460fc-c740-4d49-bc8a-a84744b4d14a"];
+    
+    // Google Analytics
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
     [GAI sharedInstance].dispatchInterval = 20;
@@ -30,14 +33,15 @@
     UIViewController *homeController = [storyboard instantiateViewControllerWithIdentifier:@"HomeScreen"];
     UIViewController *menuController = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     
-    _revealController = [[PKRevealController alloc] initWithFrontViewController:homeController
-                                                             leftViewController:menuController
-                                                                        options:nil];
+    PKRevealController *revealController =
+    [[PKRevealController alloc] initWithFrontViewController:homeController
+                                         leftViewController:menuController
+                                                    options:nil];
     
-    self.window.rootViewController = _revealController;
+    self.window.rootViewController = revealController;
     [self.window makeKeyAndVisible];
     
-    [CLWeatherCenter service];
+    
     
     return YES;
 }

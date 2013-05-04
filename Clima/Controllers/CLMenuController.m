@@ -8,6 +8,7 @@
 
 #import "CLMenuController.h"
 #import "CLMenuCell.h"
+#import "CLAppDelegate.h"
 
 NSString *const MenuCellIdentifier = @"MenuCellIdentifier";
 
@@ -74,6 +75,28 @@ NSString *const MenuCellIdentifier = @"MenuCellIdentifier";
             break;
     }
     return cell;
+}
+
+#pragma mark - UITableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    switch (indexPath.row) {
+        case 0:
+            [self performSegueWithIdentifier:@"goHome" sender:self];
+            break;
+        case 1:
+
+            break;
+        case 2:
+            [self performSegueWithIdentifier:@"goSearch" sender:self];
+            break;
+        case 3:
+
+            break;
+        default:
+            break;
+    }
 }
 
 @end

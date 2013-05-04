@@ -44,6 +44,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [[CLWeatherCenter service] update];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weatherChanged:) name:WeatherDidChangeNotification object:nil];
 }
 
