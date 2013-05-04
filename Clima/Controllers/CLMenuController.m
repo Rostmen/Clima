@@ -33,6 +33,9 @@ NSString *const MenuCellIdentifier = @"MenuCellIdentifier";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = UIColorFromRGB(0x353533);
+    self.tableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning

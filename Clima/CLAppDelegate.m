@@ -26,6 +26,8 @@
     // Create tracker instance.
     [[GAI sharedInstance] trackerWithTrackingId:@"AIzaSyDBsKmsXMSmdde6j-dAcg94qeClrCTPg80"];
 
+    UIImage *navBgImage = [[UIImage imageNamed:@"nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1];
+    [[UINavigationBar appearance] setBackgroundImage:navBgImage forBarMetrics:UIBarMetricsDefault];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard_iphone"
                                                          bundle:nil];

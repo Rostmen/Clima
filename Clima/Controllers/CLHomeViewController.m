@@ -32,11 +32,15 @@
     
     if (self.navigationController.revealController.type & PKRevealControllerTypeLeft)
     {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:revealImage
-                                                                   landscapeImagePhone:nil
-                                                                                 style:UIBarButtonItemStylePlain
-                                                                                target:self
-                                                                                action:@selector(showLeftView:)];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(0, 0, 35, 35);
+        [button setImage:revealImage forState:UIControlStateNormal];
+        [button setImage:revealImage forState:UIControlStateHighlighted];
+        [button addTarget:self
+                   action:@selector(showLeftView:)
+         forControlEvents:UIControlEventTouchUpInside];
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     }
 
 }

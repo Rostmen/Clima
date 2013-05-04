@@ -262,47 +262,6 @@
     <resources>
         <image name="logo.png" width="155" height="82"/>
     </resources>
-    <classes>
-        <class className="CLHomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLHomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeTemperature:" candidateClass="UISlider"/>
-                <relationship kind="action" name="checkWeather:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="termoView" candidateClass="CLTermoView"/>
-            </relationships>
-        </class>
-        <class className="CLMenuCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLMenuCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="iconView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CLMenuController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLMenuController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CLSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showLeftView:"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="revealButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="searchField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="temperatureLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CLTermoView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLTermoView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
