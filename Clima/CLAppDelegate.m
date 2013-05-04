@@ -15,6 +15,14 @@
 {
     
     [TestFlight takeOff:@"775460fc-c740-4d49-bc8a-a84744b4d14a"];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    // Optional: set debug to YES for extra debugging information.
+    [GAI sharedInstance].debug = YES;
+    // Create tracker instance.
+    [[GAI sharedInstance] trackerWithTrackingId:@"AIzaSyDBsKmsXMSmdde6j-dAcg94qeClrCTPg80"];
+
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard_iphone"
                                                          bundle:nil];

@@ -17,6 +17,7 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
 @interface CLWeatherCenter () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) id<GAITracker> tracker;
 
 @end
 
@@ -39,6 +40,7 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
         if ([self initLocationManager]) {
             [self configurateRestKit];
         }
+        _tracker = [[GAI sharedInstance] defaultTracker];
     }
     return self;
 }
@@ -144,8 +146,17 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
         _lastWeather = [mappingResult firstObject];
         NSLog(@"%@", _lastWeather);
         [[NSNotificationCenter defaultCenter] postNotificationName:WeatherDidChangeNotification object:_lastWeather userInfo:nil];
+        
+        
+        
+        [_tracker sendEventWithCategory:@"Weather API"
+                             withAction:@"Checked weather"
+                              withLabel:nil
+                              withValue:nil];
+        
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Weather is not received!");
+        [_tracker sendException:NO withNSError:error];
     }];
 }
 
