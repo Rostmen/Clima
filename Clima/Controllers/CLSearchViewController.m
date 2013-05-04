@@ -10,7 +10,7 @@
 #import "CLWeatherCenter.h"
 #import "CLMyLocation.h"
 
-NSInteger const Distance = 1000;
+NSInteger const Distance = 6000;
 
 @interface CLSearchViewController ()
 
