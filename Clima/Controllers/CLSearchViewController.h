@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MKMapView;
-
 @interface CLSearchViewController : UIViewController <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UIImageView *navBarView;
 @property (weak, nonatomic) IBOutlet UIButton *revealButton;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;

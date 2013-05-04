@@ -249,6 +249,7 @@
                     <navigationItem key="navigationItem" id="zM1-4h-wam"/>
                     <connections>
                         <outlet property="mapView" destination="fEu-Es-yPg" id="ql6-nc-pJ3"/>
+                        <outlet property="navBarView" destination="Phr-Mj-78p" id="YJB-Z5-QAO"/>
                         <outlet property="revealButton" destination="45B-GI-EIR" id="e3g-mW-DM5"/>
                         <outlet property="searchField" destination="CXA-rC-W01" id="OEz-1O-IGd"/>
                         <outlet property="temperatureLabel" destination="orh-Vr-RqL" id="hpp-hH-vi7"/>

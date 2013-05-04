@@ -9,6 +9,7 @@
 #import "CLSearchViewController.h"
 #import "CLWeatherCenter.h"
 #import "CLMyLocation.h"
+#import <QuartzCore/QuartzCore.h>
 
 NSInteger const Distance = 6000;
 
@@ -58,6 +59,11 @@ NSInteger const Distance = 6000;
     
     _searchField.rightView = searchButton;
     _searchField.rightViewMode = UITextFieldViewModeAlways;
+    
+    _navBarView.layer.shadowColor = [UIColor blackColor].CGColor;
+    _navBarView.layer.shadowRadius = 4.0f;
+    _navBarView.layer.shadowOpacity = 0.8f;
+    _navBarView.layer.shadowOffset = CGSizeMake(0, 1);
 }
 
 - (IBAction)showLeftView:(id)sender
