@@ -7,6 +7,7 @@
 //
 
 #import "CLWeatherCenter.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 NSString *const WeatherApiPoint = @"http://api.openweathermap.org/data/2.5/";
 NSTimeInterval const WeatherApiTimeout = 10;
@@ -151,5 +152,21 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
 - (void)update {
     [self updateByLocation:_lastLocation.coordinate];
 }
+
+#pragma mark - Sound
+
++ (void)playSound: (NSString *)name
+{
+    NSString *path = [NSString stringWithFormat: @"%@/%@",
+                      [[NSBundle mainBundle] resourcePath], name];
+    
+    
+    NSURL* filePath = [NSURL fileURLWithPath: path isDirectory: NO];
+    SystemSoundID soundID;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    AudioServicesPlaySystemSound(soundID);
+}
+
+
 
 @end

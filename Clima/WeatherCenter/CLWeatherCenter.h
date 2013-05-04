@@ -19,5 +19,6 @@ extern NSString *const WeatherDidChangeNotification;
 @property (nonatomic, strong) CLWeather *lastWeather;
 
 - (void)update;
++ (void)playSound: (NSString *)name;
 
 @end

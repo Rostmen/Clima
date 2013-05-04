@@ -81,6 +81,7 @@
 
 - (void)weatherChanged:(NSNotification *)notification {
     CLWeather *weather = (CLWeather *)notification.object;
+    [CLWeatherCenter playSound:@"Sonar.m4r"];
     _termoView.temperature = weather.temp.floatValue - 273.15;
     _locationLabel.text = [NSString stringWithFormat:@"%@, %@", weather.city, weather.country];
 }
