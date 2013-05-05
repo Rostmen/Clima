@@ -48,6 +48,7 @@
 		84065F271735253D0087F6C0 /* Sonar.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 84065F261735253D0087F6C0 /* Sonar.m4r */; };
 		84065F291735266E0087F6C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F281735266E0087F6C0 /* AudioToolbox.framework */; };
 		84065F33173532C60087F6C0 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F31173532C60087F6C0 /* libGoogleAnalytics.a */; };
+		8438B9CE1736F335001F7426 /* CorkPop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9CD1736F335001F7426 /* CorkPop.mp3 */; };
 		84F4793517340CDE00DF690E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793417340CDE00DF690E /* UIKit.framework */; };
 		84F4793717340CDE00DF690E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793617340CDE00DF690E /* Foundation.framework */; };
 		84F4793917340CDE00DF690E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793817340CDE00DF690E /* CoreGraphics.framework */; };
@@ -122,6 +123,7 @@
 		84065F2F173532C60087F6C0 /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
 		84065F30173532C60087F6C0 /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
 		84065F31173532C60087F6C0 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		8438B9CD1736F335001F7426 /* CorkPop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CorkPop.mp3; sourceTree = "<group>"; };
 		84F4793117340CDE00DF690E /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4793417340CDE00DF690E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84F4793617340CDE00DF690E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -265,6 +267,7 @@
 		84065F251735253C0087F6C0 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				8438B9CD1736F335001F7426 /* CorkPop.mp3 */,
 				84065F261735253D0087F6C0 /* Sonar.m4r */,
 			);
 			path = Sounds;
@@ -443,6 +446,7 @@
 				84065F0817342C7F0087F6C0 /* barbutton@2x.png in Resources */,
 				84065F0917342C7F0087F6C0 /* barbutton_@2x.png in Resources */,
 				84065F271735253D0087F6C0 /* Sonar.m4r in Resources */,
+				8438B9CE1736F335001F7426 /* CorkPop.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
