@@ -27,6 +27,11 @@
     [[GAI sharedInstance] trackerWithTrackingId:@"AIzaSyDBsKmsXMSmdde6j-dAcg94qeClrCTPg80"];
 
     
+    // Parse.com
+    [Parse setApplicationId:@"KKom8hr8KZM4jldQZNqiz3uMoemdFuy9Q8GVSOHq"
+                  clientKey:@"CtIinRt625Tk4HEcXgpixnlcTTBT4J5g4GGkv9RC"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard_iphone"
                                                          bundle:nil];
     
@@ -44,6 +49,11 @@
     
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
