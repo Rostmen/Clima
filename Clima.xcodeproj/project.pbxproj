@@ -45,7 +45,6 @@
 		84065F1E17348C190087F6C0 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F1D17348C190087F6C0 /* CoreText.framework */; };
 		84065F221734989A0087F6C0 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F201734989A0087F6C0 /* libTestFlight.a */; };
 		84065F241734992E0087F6C0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F231734992E0087F6C0 /* libz.dylib */; };
-		84065F271735253D0087F6C0 /* Sonar.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 84065F261735253D0087F6C0 /* Sonar.m4r */; };
 		84065F291735266E0087F6C0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F281735266E0087F6C0 /* AudioToolbox.framework */; };
 		84065F33173532C60087F6C0 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84065F31173532C60087F6C0 /* libGoogleAnalytics.a */; };
 		8438B99B17356CC5001F7426 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8438B99A17356CC5001F7426 /* MapKit.framework */; };
@@ -56,9 +55,9 @@
 		8438B9A917357C9D001F7426 /* ic_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9A517357C9D001F7426 /* ic_search@2x.png */; };
 		8438B9AA17357C9D001F7426 /* map_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9A617357C9D001F7426 /* map_pin@2x.png */; };
 		8438B9AE173582A8001F7426 /* CLMyLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438B9AD173582A8001F7426 /* CLMyLocation.m */; };
-		8438B9B017359D7A001F7426 /* Ding-Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9AF17359D7A001F7426 /* Ding-Ding.mp3 */; };
 		8438B9B31735B579001F7426 /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9B11735B579001F7426 /* nav_bg.png */; };
 		8438B9B41735B579001F7426 /* nav_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9B21735B579001F7426 /* nav_bg@2x.png */; };
+		8438B9D41736FFAB001F7426 /* CorkPop.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9D31736FFAB001F7426 /* CorkPop.m4r */; };
 		84F4793517340CDE00DF690E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793417340CDE00DF690E /* UIKit.framework */; };
 		84F4793717340CDE00DF690E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793617340CDE00DF690E /* Foundation.framework */; };
 		84F4793917340CDE00DF690E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793817340CDE00DF690E /* CoreGraphics.framework */; };
@@ -125,7 +124,6 @@
 		84065F201734989A0087F6C0 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		84065F211734989A0087F6C0 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		84065F231734992E0087F6C0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		84065F261735253D0087F6C0 /* Sonar.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sonar.m4r; sourceTree = "<group>"; };
 		84065F281735266E0087F6C0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		84065F2C173532C60087F6C0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		84065F2D173532C60087F6C0 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
@@ -144,9 +142,9 @@
 		8438B9A617357C9D001F7426 /* map_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pin@2x.png"; sourceTree = "<group>"; };
 		8438B9AC173582A8001F7426 /* CLMyLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMyLocation.h; path = Map/CLMyLocation.h; sourceTree = "<group>"; };
 		8438B9AD173582A8001F7426 /* CLMyLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMyLocation.m; path = Map/CLMyLocation.m; sourceTree = "<group>"; };
-		8438B9AF17359D7A001F7426 /* Ding-Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ding-Ding.mp3"; sourceTree = "<group>"; };
 		8438B9B11735B579001F7426 /* nav_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bg.png; sourceTree = "<group>"; };
 		8438B9B21735B579001F7426 /* nav_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bg@2x.png"; sourceTree = "<group>"; };
+		8438B9D31736FFAB001F7426 /* CorkPop.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = CorkPop.m4r; sourceTree = "<group>"; };
 		84F4793117340CDE00DF690E /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4793417340CDE00DF690E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84F4793617340CDE00DF690E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -299,8 +297,7 @@
 		84065F251735253C0087F6C0 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				8438B9AF17359D7A001F7426 /* Ding-Ding.mp3 */,
-				84065F261735253D0087F6C0 /* Sonar.m4r */,
+				8438B9D31736FFAB001F7426 /* CorkPop.m4r */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -498,14 +495,13 @@
 				84065F0717342C7F0087F6C0 /* logo@2x.png in Resources */,
 				84065F0817342C7F0087F6C0 /* barbutton@2x.png in Resources */,
 				84065F0917342C7F0087F6C0 /* barbutton_@2x.png in Resources */,
-				84065F271735253D0087F6C0 /* Sonar.m4r in Resources */,
 				8438B9A717357C9D001F7426 /* ic_search.png in Resources */,
 				8438B9A817357C9D001F7426 /* map_pin.png in Resources */,
 				8438B9A917357C9D001F7426 /* ic_search@2x.png in Resources */,
 				8438B9AA17357C9D001F7426 /* map_pin@2x.png in Resources */,
-				8438B9B017359D7A001F7426 /* Ding-Ding.mp3 in Resources */,
 				8438B9B31735B579001F7426 /* nav_bg.png in Resources */,
 				8438B9B41735B579001F7426 /* nav_bg@2x.png in Resources */,
+				8438B9D41736FFAB001F7426 /* CorkPop.m4r in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
