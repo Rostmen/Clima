@@ -55,7 +55,7 @@
 		8438B9A917357C9D001F7426 /* ic_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9A517357C9D001F7426 /* ic_search@2x.png */; };
 		8438B9AA17357C9D001F7426 /* map_pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9A617357C9D001F7426 /* map_pin@2x.png */; };
 		8438B9AE173582A8001F7426 /* CLMyLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438B9AD173582A8001F7426 /* CLMyLocation.m */; };
-		8438B9D41736FFAB001F7426 /* CorkPop.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9D31736FFAB001F7426 /* CorkPop.m4r */; };
+		8438B9D917370E20001F7426 /* CorkPop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9D817370E20001F7426 /* CorkPop.mp3 */; };
 		84F4793517340CDE00DF690E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793417340CDE00DF690E /* UIKit.framework */; };
 		84F4793717340CDE00DF690E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793617340CDE00DF690E /* Foundation.framework */; };
 		84F4793917340CDE00DF690E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793817340CDE00DF690E /* CoreGraphics.framework */; };
@@ -140,7 +140,7 @@
 		8438B9A617357C9D001F7426 /* map_pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_pin@2x.png"; sourceTree = "<group>"; };
 		8438B9AC173582A8001F7426 /* CLMyLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLMyLocation.h; path = Map/CLMyLocation.h; sourceTree = "<group>"; };
 		8438B9AD173582A8001F7426 /* CLMyLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLMyLocation.m; path = Map/CLMyLocation.m; sourceTree = "<group>"; };
-		8438B9D31736FFAB001F7426 /* CorkPop.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = CorkPop.m4r; sourceTree = "<group>"; };
+		8438B9D817370E20001F7426 /* CorkPop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CorkPop.mp3; sourceTree = "<group>"; };
 		84F4793117340CDE00DF690E /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4793417340CDE00DF690E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84F4793617340CDE00DF690E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -288,14 +288,6 @@
 			path = TestFlight;
 			sourceTree = "<group>";
 		};
-		84065F251735253C0087F6C0 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				8438B9D31736FFAB001F7426 /* CorkPop.m4r */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
 		84065F2A173532C60087F6C0 /* Google */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +325,14 @@
 				8438B9AD173582A8001F7426 /* CLMyLocation.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		8438B9D717370E20001F7426 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8438B9D817370E20001F7426 /* CorkPop.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		84F4792817340CDE00DF690E = {
@@ -396,7 +396,7 @@
 		84F4793D17340CDE00DF690E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84065F251735253C0087F6C0 /* Sounds */,
+				8438B9D717370E20001F7426 /* Sounds */,
 				84065EDA1734289D0087F6C0 /* Images */,
 				84F4793E17340CDE00DF690E /* Clima-Info.plist */,
 				84F4793F17340CDE00DF690E /* InfoPlist.strings */,
@@ -493,7 +493,7 @@
 				8438B9A817357C9D001F7426 /* map_pin.png in Resources */,
 				8438B9A917357C9D001F7426 /* ic_search@2x.png in Resources */,
 				8438B9AA17357C9D001F7426 /* map_pin@2x.png in Resources */,
-				8438B9D41736FFAB001F7426 /* CorkPop.m4r in Resources */,
+				8438B9D917370E20001F7426 /* CorkPop.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
