@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="HqD-dm-7wQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="5J3-Vg-hwe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -153,11 +153,42 @@
                         <outlet property="tableView" destination="9QO-fO-5ho" id="MZK-hJ-vVY"/>
                         <segue destination="HqD-dm-7wQ" kind="custom" identifier="goHome" customClass="CLRevealSegue" id="Qgo-VN-weN"/>
                         <segue destination="cUJ-e4-WfU" kind="custom" identifier="goSearch" customClass="CLRevealSegue" id="I7h-4z-SKm"/>
+                        <segue destination="Jwc-8E-WIM" kind="custom" identifier="goFriends" customClass="CLRevealSegue" id="v8n-bs-ncL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uj5-UU-hax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-704" y="369"/>
+            <point key="canvasLocation" x="-900" y="1013"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yci-K0-ti1">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Jwc-8E-WIM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bKT-fE-6kh">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dDO-nh-M5L" kind="relationship" relationship="rootViewController" id="isS-SW-mlv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GFX-bA-rot" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="2115"/>
+        </scene>
+        <!--Friends View Controller - Friends-->
+        <scene sceneID="1mn-qe-z9D">
+            <objects>
+                <viewController id="dDO-nh-M5L" customClass="CLFriendsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kaT-Sp-k5n">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Friends" id="qyV-y1-6Bn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocj-bk-kqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="459" y="2115"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="YAc-wZ-LAW">
@@ -256,53 +287,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Flp-Oy-DTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="724"/>
+            <point key="canvasLocation" x="-25" y="1418"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo.png" width="155" height="82"/>
     </resources>
-    <classes>
-        <class className="CLHomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLHomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeTemperature:" candidateClass="UISlider"/>
-                <relationship kind="action" name="checkWeather:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="termoView" candidateClass="CLTermoView"/>
-            </relationships>
-        </class>
-        <class className="CLMenuCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLMenuCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="iconView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CLMenuController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLMenuController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CLSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showLeftView:"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="revealButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="searchField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="temperatureLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CLTermoView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLTermoView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
