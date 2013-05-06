@@ -26,8 +26,18 @@
     // Create tracker instance.
     [[GAI sharedInstance] trackerWithTrackingId:@"AIzaSyDBsKmsXMSmdde6j-dAcg94qeClrCTPg80"];
 
-    UIImage *navBgImage = [[UIImage imageNamed:@"nav_bg"] stretchableImageWithLeftCapWidth:1 topCapHeight:1];
+    UIImage *navBgImage = [[UIImage imageNamed:@"nav_bg"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
     [[UINavigationBar appearance] setBackgroundImage:navBgImage forBarMetrics:UIBarMetricsDefault];
+    
+    // Parse.com
+    [Parse setApplicationId:@"KKom8hr8KZM4jldQZNqiz3uMoemdFuy9Q8GVSOHq"
+                  clientKey:@"CtIinRt625Tk4HEcXgpixnlcTTBT4J5g4GGkv9RC"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    // Social init
+    [PFFacebookUtils initializeFacebook];
+    [PFTwitterUtils initializeWithConsumerKey:@"ZI0yfXDQoNzlc1tUg3bQoQ"
+                               consumerSecret:@"NMMEx0mj4wgNgKWUbRmbT0QY9mDzZK4fvWYibN4918"];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard_iphone"
                                                          bundle:nil];
@@ -46,6 +56,11 @@
     
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

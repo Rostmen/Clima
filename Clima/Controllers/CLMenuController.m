@@ -95,7 +95,7 @@ NSString *const MenuCellIdentifier = @"MenuCellIdentifier";
             [self performSegueWithIdentifier:@"goSearch" sender:self];
             break;
         case 3:
-
+            [self performSegueWithIdentifier:@"goFriends" sender:self];
             break;
         default:
             break;

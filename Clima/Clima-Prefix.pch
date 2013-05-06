@@ -20,6 +20,8 @@
     #import "CLWeatherCenter.h"
     #import <GAI.h>
     #import <MapKit/MapKit.h>
+    #import <Parse/Parse.h>
+    #import <FacebookSDK/FacebookSDK.h>
 
 #define hasFourInchDisplay [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568.0
 
