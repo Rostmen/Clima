@@ -69,6 +69,9 @@
 		8438B9C81736F0B7001F7426 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8438B9C71736F0B7001F7426 /* libsqlite3.dylib */; };
 		8438B9CA1736F0C5001F7426 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8438B9C91736F0C5001F7426 /* Social.framework */; };
 		8438B9CC1736F0F1001F7426 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8438B9CB1736F0F1001F7426 /* FacebookSDKResources.bundle */; };
+		8438B9DC17379C26001F7426 /* CLLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438B9DB17379C26001F7426 /* CLLogInViewController.m */; };
+		8438B9DF17379CEC001F7426 /* CLSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438B9DE17379CEC001F7426 /* CLSignUpViewController.m */; };
+		8438B9E317379E11001F7426 /* CLFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8438B9E217379E11001F7426 /* CLFriendsViewController.m */; };
 		84F4793517340CDE00DF690E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793417340CDE00DF690E /* UIKit.framework */; };
 		84F4793717340CDE00DF690E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793617340CDE00DF690E /* Foundation.framework */; };
 		84F4793917340CDE00DF690E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4793817340CDE00DF690E /* CoreGraphics.framework */; };
@@ -167,6 +170,12 @@
 		8438B9C71736F0B7001F7426 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8438B9C91736F0C5001F7426 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		8438B9CB1736F0F1001F7426 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		8438B9DA17379C26001F7426 /* CLLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLogInViewController.h; sourceTree = "<group>"; };
+		8438B9DB17379C26001F7426 /* CLLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLogInViewController.m; sourceTree = "<group>"; };
+		8438B9DD17379CEC001F7426 /* CLSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSignUpViewController.h; sourceTree = "<group>"; };
+		8438B9DE17379CEC001F7426 /* CLSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSignUpViewController.m; sourceTree = "<group>"; };
+		8438B9E117379E11001F7426 /* CLFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFriendsViewController.h; sourceTree = "<group>"; };
+		8438B9E217379E11001F7426 /* CLFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFriendsViewController.m; sourceTree = "<group>"; };
 		84F4793117340CDE00DF690E /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F4793417340CDE00DF690E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84F4793617340CDE00DF690E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -234,11 +243,14 @@
 		84065EC21734120A0087F6C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8438B9E017379CF1001F7426 /* Auth */,
 				84065EC31734120A0087F6C0 /* CLHomeViewController.h */,
 				84065EC41734120A0087F6C0 /* CLHomeViewController.m */,
 				84065ED21734251A0087F6C0 /* Reveal */,
 				8438B99C17356DBE001F7426 /* CLSearchViewController.h */,
 				8438B99D17356DBE001F7426 /* CLSearchViewController.m */,
+				8438B9E117379E11001F7426 /* CLFriendsViewController.h */,
+				8438B9E217379E11001F7426 /* CLFriendsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -371,6 +383,17 @@
 				8438B9AD173582A8001F7426 /* CLMyLocation.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		8438B9E017379CF1001F7426 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				8438B9DA17379C26001F7426 /* CLLogInViewController.h */,
+				8438B9DB17379C26001F7426 /* CLLogInViewController.m */,
+				8438B9DD17379CEC001F7426 /* CLSignUpViewController.h */,
+				8438B9DE17379CEC001F7426 /* CLSignUpViewController.m */,
+			);
+			name = Auth;
 			sourceTree = "<group>";
 		};
 		84F4792817340CDE00DF690E = {
@@ -589,6 +612,9 @@
 				8438B99E17356DBE001F7426 /* CLSearchViewController.m in Sources */,
 				8438B9A217356FF3001F7426 /* CLRevealSegue.m in Sources */,
 				8438B9AE173582A8001F7426 /* CLMyLocation.m in Sources */,
+				8438B9DC17379C26001F7426 /* CLLogInViewController.m in Sources */,
+				8438B9DF17379CEC001F7426 /* CLSignUpViewController.m in Sources */,
+				8438B9E317379E11001F7426 /* CLFriendsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
