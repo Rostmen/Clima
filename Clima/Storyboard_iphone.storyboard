@@ -168,7 +168,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="dDO-nh-M5L" kind="relationship" relationship="rootViewController" id="isS-SW-mlv"/>
+                        <segue destination="1en-3y-qiz" kind="relationship" relationship="rootViewController" id="Mvd-9h-8g0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFX-bA-rot" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -176,15 +176,37 @@
             <point key="canvasLocation" x="-25" y="2115"/>
         </scene>
         <!--Friends View Controller - Friends-->
-        <scene sceneID="1mn-qe-z9D">
+        <scene sceneID="fUh-AM-nkH">
             <objects>
-                <viewController id="dDO-nh-M5L" customClass="CLFriendsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kaT-Sp-k5n">
+                <tableViewController id="1en-3y-qiz" customClass="CLFriendsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wNu-AZ-U5j">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Friends" id="qyV-y1-6Bn">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="cFI-ls-vt3" style="IBUITableViewCellStyleDefault" id="sac-PK-5eC">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFI-ls-vt3">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1en-3y-qiz" id="JVt-6q-BFO"/>
+                            <outlet property="delegate" destination="1en-3y-qiz" id="fAx-87-iSV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Friends" id="4LD-wZ-4Np">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="2Dw-qs-Z8W">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vsg-qc-VsS">
                                 <rect key="frame" x="244" y="5" width="71" height="33"/>
@@ -199,15 +221,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logOut:" destination="dDO-nh-M5L" eventType="touchUpInside" id="U4h-cW-tSb"/>
+                                    <action selector="logOut:" destination="1en-3y-qiz" eventType="touchUpInside" id="Bdf-sg-aui"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ocj-bk-kqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5c-kO-ytF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="2115"/>
+            <point key="canvasLocation" x="497" y="2115"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="YAc-wZ-LAW">
@@ -315,7 +337,7 @@
         <image name="logo.png" width="155" height="82"/>
     </resources>
     <classes>
-        <class className="CLFriendsViewController" superclassName="UIViewController">
+        <class className="CLFriendsViewController" superclassName="PFQueryTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CLFriendsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="logOut:"/>
@@ -360,6 +382,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PFQueryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFQueryTableViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

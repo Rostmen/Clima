@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CLFriendsViewController : UIViewController
+@interface CLFriendsViewController : PFQueryTableViewController
 
 - (IBAction)logOut:(id)sender;
 

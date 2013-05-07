@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    self.delegate = self;
     self.navigationItem.title = NSLocalizedString(@"Sign Up", @"Sign Up");
     
     UIImage *revealImage = [UIImage imageNamed:@"ic_back"];
