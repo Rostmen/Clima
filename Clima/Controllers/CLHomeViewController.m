@@ -48,13 +48,25 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[CLWeatherCenter service] update];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weatherChanged:) name:WeatherDidChangeNotification object:nil];
+    [_termoView.tempLabel setHidden:YES];
+    [_activityIndicator startAnimating];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(weatherDidChange:)
+                                                 name:WeatherDidChangeNotification object:nil];
+}
+
+- (void)weatherDidChange: (NSNotification *)noty {
+    CLWeather *weather = [noty object];
+    [_activityIndicator stopAnimating];
+    [_termoView.tempLabel setHidden:NO];
+    [CLWeatherCenter playSound:@"CorkPop.mp3"];
+    _termoView.temperature = weather.temp.floatValue - 273.15;
+    _locationLabel.text = [NSString stringWithFormat:@"%@, %@", weather.city, weather.country];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -81,14 +93,17 @@
 }
 
 - (IBAction)checkWeather:(UITapGestureRecognizer *)sender {
-    [[CLWeatherCenter service] update];
-}
-
-- (void)weatherChanged:(NSNotification *)notification {
-    CLWeather *weather = (CLWeather *)notification.object;
-    [CLWeatherCenter playSound:@"CorkPop.mp3"];
-    _termoView.temperature = weather.temp.floatValue - 273.15;
-    _locationLabel.text = [NSString stringWithFormat:@"%@, %@", weather.city, weather.country];
+    [_activityIndicator startAnimating];
+    [_termoView.tempLabel setHidden:YES];
+    [[CLWeatherCenter service] update:^(NSError *error, CLWeather *weather) {
+        [_activityIndicator stopAnimating];
+        [_termoView.tempLabel setHidden:NO];
+        if (!error) {
+            [CLWeatherCenter playSound:@"CorkPop.mp3"];
+            _termoView.temperature = weather.temp.floatValue - 273.15;
+            _locationLabel.text = [NSString stringWithFormat:@"%@, %@", weather.city, weather.country];
+        }
+    }];
 }
 
 @end

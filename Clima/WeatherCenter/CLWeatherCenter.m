@@ -117,12 +117,13 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
           location.coordinate.latitude,
           location.coordinate.longitude);
     _lastLocation = location;
-    [self updateByLocation:_lastLocation.coordinate];
+    [self updateByLocation:_lastLocation.coordinate finish:nil];
 }
 
 #pragma mark - Update weather;
 
-- (void)updateByLocation: (CLLocationCoordinate2D) location {
+- (void)updateByLocation:(CLLocationCoordinate2D)location
+                  finish:(CLWeatherFinish)finish {
     
 
     if (_lastWeather) {
@@ -147,8 +148,11 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
 
         _lastWeather = [mappingResult firstObject];
         NSLog(@"%@", _lastWeather);
-        [[NSNotificationCenter defaultCenter] postNotificationName:WeatherDidChangeNotification object:_lastWeather userInfo:nil];
+        if (finish) finish(nil, _lastWeather);
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:WeatherDidChangeNotification
+                                                            object:_lastWeather
+                                                          userInfo:nil];
         
         
         [_tracker sendEventWithCategory:@"Weather API"
@@ -159,6 +163,7 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Weather is not received!");
         [_tracker sendException:NO withNSError:error];
+        if (finish) finish (error, nil);
     }];
 }
 
@@ -186,9 +191,9 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
     }];
 }
 
-- (void)update {
+- (void)update:(CLWeatherFinish)finish {
     if (_lastLocation)
-        [self updateByLocation:_lastLocation.coordinate];
+        [self updateByLocation:_lastLocation.coordinate finish:finish];
 }
 
 #pragma mark - Sound

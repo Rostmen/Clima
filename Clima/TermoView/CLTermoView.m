@@ -7,7 +7,6 @@
 //
 
 #import "CLTermoView.h"
-#import "CLAnimatedLabel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImage+Picker.h"
 
@@ -21,9 +20,6 @@
 @property (nonatomic, strong) CAShapeLayer *circle;
 @property (nonatomic, strong) CAShapeLayer *shadow;
 @property (nonatomic, strong) UIImage *termoSpectrum;
-@property (nonatomic, strong) CLAnimatedLabel *tempLabel;
-
-
 
 @end
 
@@ -39,7 +35,7 @@
 }
 
 - (void)layoutSubviews {
-    
+    [super layoutSubviews];
     if ([_circle superlayer]) 
         [_circle removeFromSuperlayer];
     

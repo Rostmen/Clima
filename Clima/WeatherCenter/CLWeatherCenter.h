@@ -12,6 +12,7 @@
 extern NSString *const WeatherDidChangeNotification;
 
 typedef void (^CLWeatherCenterSuccess)(CLWeather *weather);
+typedef void (^CLWeatherFinish)(NSError *error, CLWeather *weather);
 
 @interface CLWeatherCenter : NSObject
 
@@ -20,7 +21,7 @@ typedef void (^CLWeatherCenterSuccess)(CLWeather *weather);
 @property (nonatomic, strong) CLLocation *lastLocation;
 @property (nonatomic, strong) CLWeather *lastWeather;
 
-- (void)update;
+- (void)update:(CLWeatherFinish)finish;
 - (void)searchWeather:(NSString *)query
               success:(CLWeatherCenterSuccess)success;
 + (void)playSound: (NSString *)name;

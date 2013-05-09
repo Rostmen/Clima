@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLAnimatedLabel.h"
 
 @interface CLTermoView : UIView
 
 @property (nonatomic, assign) CGFloat temperature;
-
+@property (nonatomic, strong) CLAnimatedLabel *tempLabel;
 
 @end

@@ -9,6 +9,7 @@
 #import "CLFriendsViewController.h"
 #import "CLLogInViewController.h"
 #import "CLSignUpViewController.h"
+#import "CLUsersController.h"
 
 @interface CLFriendsViewController ()
 
@@ -25,7 +26,8 @@
 }
 
 - (PFQuery *)queryForTable {
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    PFRelation *ralation = [[PFUser currentUser] relationforKey:@"friends"];
+    PFQuery *query = [ralation query];
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
@@ -57,6 +59,11 @@
     return cell;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self loadObjects];
+}
+
 - (void)viewDidLoad
 {
     self.parseClassName = @"_User";
@@ -66,11 +73,7 @@
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    
     UIImage *revealImage = [UIImage imageNamed:@"ic_reveal"];
     
     if (self.navigationController.revealController.type & PKRevealControllerTypeLeft)
@@ -83,8 +86,15 @@
                    action:@selector(showLeftView:)
          forControlEvents:UIControlEventTouchUpInside];
         
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.navigationItem.leftBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:button], self.navigationItem.leftBarButtonItem];
+        
     }
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
     
     [self checkForUser];
 }

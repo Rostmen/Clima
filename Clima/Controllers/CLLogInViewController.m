@@ -159,7 +159,42 @@
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if ([PFFacebookUtils isLinkedWithUser:user]) {
+        // Create request for user's Facebook data
+        FBRequest *request = [FBRequest requestForMe];
+        
+        [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            if (!error) {
+                // result is a dictionary with the user's Facebook data
+                NSDictionary *userData = (NSDictionary *)result;
+                
+                NSString *facebookID = userData[@"id"];
+                NSString *name = userData[@"name"];
+                
+                [user setObject:name forKey:@"username"];
+                
+                
+                
+                NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+                NSData *imageData = [NSData dataWithContentsOfURL:pictureURL];
+                PFFile *imageFile = [PFFile fileWithData:imageData];
+                
+                [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if(!error) {
+                        [user setObject:imageFile forKey:@"userPic"];
+                        [user saveInBackground];
+                    }
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }];
+                // Now add the data to the UI elements
+                // ...
+            }
+        }];
+    } else if ([PFTwitterUtils isLinkedWithUser:user]) {
+        
+    }
+    
+    
 }
 
 #pragma mark - Reveal

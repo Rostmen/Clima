@@ -26,6 +26,9 @@
     // Create tracker instance.
     [[GAI sharedInstance] trackerWithTrackingId:@"AIzaSyDBsKmsXMSmdde6j-dAcg94qeClrCTPg80"];
 
+    [CLWeatherCenter service];
+
+    
     UIImage *navBgImage = [[UIImage imageNamed:@"nav_bg"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
     [[UINavigationBar appearance] setBackgroundImage:navBgImage forBarMetrics:UIBarMetricsDefault];
     
