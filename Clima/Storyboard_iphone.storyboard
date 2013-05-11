@@ -49,15 +49,53 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iZL-se-sCN">
                                 <color key="color" red="0.0" green="0.67058825489999996" blue="0.88627457620000005" alpha="1" colorSpace="deviceRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSJ-uf-W1g">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="cKM-cd-q64"/>
+                                    <constraint firstAttribute="width" constant="91" type="user" id="jYa-lQ-asT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="Facebook.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postFacebook:" destination="6P5-A6-QUs" eventType="touchUpInside" id="5rp-3S-bbg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sJ-Tf-ThV">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" type="user" id="ftk-vk-27d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="Tweet.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tweet:" destination="6P5-A6-QUs" eventType="touchUpInside" id="qhr-lK-kPC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9sJ-Tf-ThV" firstAttribute="top" secondItem="rSJ-uf-W1g" secondAttribute="top" type="default" id="7Dj-Mu-tLc"/>
+                            <constraint firstItem="rSJ-uf-W1g" firstAttribute="leading" secondItem="fEk-Y9-a3d" secondAttribute="leading" type="default" id="C9U-5H-DvQ"/>
+                            <constraint firstItem="fEk-Y9-a3d" firstAttribute="centerX" secondItem="hED-wq-M3o" secondAttribute="centerX" type="default" id="DKp-vF-wz7"/>
+                            <constraint firstAttribute="bottom" secondItem="rSJ-uf-W1g" secondAttribute="bottom" constant="50" type="user" id="Gps-Hy-iwE"/>
                             <constraint firstItem="iZL-se-sCN" firstAttribute="leading" secondItem="JJ4-mu-7sh" secondAttribute="leading" constant="141" id="M1z-Zv-pJx"/>
-                            <constraint firstAttribute="centerX" secondItem="fEk-Y9-a3d" secondAttribute="centerX" type="user" id="MBH-Cp-131"/>
-                            <constraint firstAttribute="centerX" secondItem="hED-wq-M3o" secondAttribute="centerX" type="user" id="Vtz-Z7-VBc"/>
+                            <constraint firstItem="fEk-Y9-a3d" firstAttribute="centerX" secondItem="JJ4-mu-7sh" secondAttribute="centerX" type="default" id="WKR-KP-Ib5"/>
                             <constraint firstItem="iZL-se-sCN" firstAttribute="top" secondItem="JJ4-mu-7sh" secondAttribute="top" constant="152" id="X72-hB-hq8"/>
+                            <constraint firstItem="fEk-Y9-a3d" firstAttribute="trailing" secondItem="9sJ-Tf-ThV" secondAttribute="trailing" type="default" id="Xtk-5V-fLs"/>
                             <constraint firstItem="hED-wq-M3o" firstAttribute="top" secondItem="JJ4-mu-7sh" secondAttribute="top" constant="30" type="user" id="dWQ-oO-sqD"/>
                             <constraint firstItem="fEk-Y9-a3d" firstAttribute="top" secondItem="hED-wq-M3o" secondAttribute="bottom" constant="20" type="user" id="t6T-9C-hbe"/>
+                            <constraint firstItem="9sJ-Tf-ThV" firstAttribute="bottom" secondItem="rSJ-uf-W1g" secondAttribute="bottom" type="default" id="vfW-DJ-Szf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="You" id="bbE-U9-mdM"/>
@@ -386,65 +424,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Facebook.png" width="90" height="29"/>
         <image name="Logout.png" width="49" height="15"/>
+        <image name="Tweet.png" width="93" height="32"/>
         <image name="ic_plus.png" width="17" height="18"/>
         <image name="logo.png" width="155" height="82"/>
     </resources>
-    <classes>
-        <class className="CLFriendsViewController" superclassName="PFQueryTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLFriendsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logOut:"/>
-            </relationships>
-        </class>
-        <class className="CLHomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLHomeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeTemperature:" candidateClass="UISlider"/>
-                <relationship kind="action" name="checkWeather:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="termoView" candidateClass="CLTermoView"/>
-            </relationships>
-        </class>
-        <class className="CLMenuCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLMenuCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="iconView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CLMenuController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLMenuController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="CLSearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLSearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showLeftView:"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="navBarView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="revealButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="searchField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="temperatureLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CLTermoView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLTermoView.h"/>
-        </class>
-        <class className="CLUsersController" superclassName="PFQueryTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CLUsersController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PFQueryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFQueryTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

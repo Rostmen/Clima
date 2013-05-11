@@ -117,7 +117,7 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
           location.coordinate.latitude,
           location.coordinate.longitude);
     _lastLocation = location;
-    [self updateByLocation:_lastLocation.coordinate finish:nil];
+
 }
 
 #pragma mark - Update weather;

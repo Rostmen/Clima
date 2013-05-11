@@ -8,6 +8,8 @@
 
 #import "CLHomeViewController.h"
 #import "CLTermoView.h"
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
 
 @interface CLHomeViewController ()
 
@@ -47,13 +49,22 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    [_termoView.tempLabel setHidden:YES];
     [_activityIndicator startAnimating];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(weatherDidChange:)
-                                                 name:WeatherDidChangeNotification object:nil];
+    [_termoView.tempLabel setHidden:YES];
+    [[CLWeatherCenter service] update:^(NSError *error, CLWeather *weather) {
+        [_activityIndicator stopAnimating];
+        [_termoView.tempLabel setHidden:NO];
+        if (!error) {
+            [CLWeatherCenter playSound:@"CorkPop.mp3"];
+            _termoView.temperature = weather.temp.floatValue - 273.15;
+            _locationLabel.text = [NSString stringWithFormat:@"%@, %@", weather.city, weather.country];
+        }
+    }];
 }
 
 - (void)weatherDidChange: (NSNotification *)noty {
@@ -67,7 +78,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)showLeftView:(id)sender
@@ -103,6 +113,52 @@
             _termoView.temperature = weather.temp.floatValue - 273.15;
             _locationLabel.text = [NSString stringWithFormat:@"%@, %@", weather.city, weather.country];
         }
+    }];
+}
+
+- (IBAction)tweet:(id)sender {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:[@"High of " stringByAppendingString:_termoView.tempLabel.text]];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Sorry"
+                                  message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+- (IBAction)postFacebook:(id)sender {
+    SLComposeViewController *facebootPost;
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) //check if Facebook Account is linked
+    {
+        SLComposeViewController *facebootPost = [[SLComposeViewController alloc] init]; //initiate the Social Controller
+        facebootPost = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook]; //Tell him with what social plattform to use it, e.g. facebook or twitter
+        [facebootPost setInitialText:[@"High of " stringByAppendingString:_termoView.tempLabel.text]]; //the message you want to post
+
+        [self presentViewController:facebootPost animated:YES completion:nil];
+    } 
+    [facebootPost setCompletionHandler:^(SLComposeViewControllerResult result) {
+        NSString *output;
+        switch (result) {
+            case SLComposeViewControllerResultCancelled:
+                output = @"Action Cancelled";
+                break;
+            case SLComposeViewControllerResultDone:
+                output = @"Post Successfull";
+                break;
+            default:
+                break;
+        } //check if everythink worked properly. Give out a message on the state.
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook" message:output delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
     }];
 }
 

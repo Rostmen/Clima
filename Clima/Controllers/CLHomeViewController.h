@@ -18,4 +18,8 @@
 - (IBAction)changeTemperature:(UISlider *)sender;
 - (IBAction)checkWeather:(UITapGestureRecognizer *)sender;
 
+- (IBAction)tweet:(id)sender;
+- (IBAction)postFacebook:(id)sender;
+
+
 @end
