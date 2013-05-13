@@ -38,6 +38,12 @@ NSString *const MenuCellIdentifier = @"MenuCellIdentifier";
     self.tableView.backgroundColor = [UIColor clearColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -51,55 +57,106 @@ NSString *const MenuCellIdentifier = @"MenuCellIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 4 + ([PFUser currentUser] ? 1 : 0);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CLMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:MenuCellIdentifier
-                                                       forIndexPath:indexPath];
-    switch (indexPath.row) {
-        case 0:
-            cell.titleLabel.text = NSLocalizedString(@"You", @"You");
-            cell.iconView.image = [UIImage imageNamed:@"ic_menu_home"];
-            break;
-        case 1:
-            cell.titleLabel.text = NSLocalizedString(@"History", @"History");
-            cell.iconView.image = [UIImage imageNamed:@"ic_menu_history"];
-            break;
-        case 2:
-            cell.titleLabel.text = NSLocalizedString(@"Search", @"Search");
-            cell.iconView.image = [UIImage imageNamed:@"ic_menu_globe"];
-            break;
-        case 3:
-            cell.titleLabel.text = NSLocalizedString(@"Friends", @"Friends");
-            cell.iconView.image = [UIImage imageNamed:@"ic_menu_friends"];
-            break;
-        default:
-            break;
+    CLMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:MenuCellIdentifier forIndexPath:indexPath];
+    
+    if ([PFUser currentUser]) {
+        switch (indexPath.row) {
+            case 0:
+                cell.titleLabel.text = NSLocalizedString(@"You", @"You");
+                cell.iconView.image = [UIImage imageNamed:@"ic_menu_home"];
+                break;
+            case 1:
+                cell.titleLabel.text = NSLocalizedString(@"My Profile", @"My Profile");
+//                cell.iconView.image = [UIImage imageNamed:@"ic_menu_history"];
+                break;
+            case 2:
+                cell.titleLabel.text = NSLocalizedString(@"History", @"History");
+                cell.iconView.image = [UIImage imageNamed:@"ic_menu_history"];
+                break;
+            case 3:
+                cell.titleLabel.text = NSLocalizedString(@"Search", @"Search");
+                cell.iconView.image = [UIImage imageNamed:@"ic_menu_globe"];
+                break;
+            case 4:
+                cell.titleLabel.text = NSLocalizedString(@"Friends", @"Friends");
+                cell.iconView.image = [UIImage imageNamed:@"ic_menu_friends"];
+                break;
+            default:
+                break;
+        }
+    } else {
+        switch (indexPath.row) {
+            case 0:
+                cell.titleLabel.text = NSLocalizedString(@"You", @"You");
+                cell.iconView.image = [UIImage imageNamed:@"ic_menu_home"];
+                break;
+            case 1:
+                cell.titleLabel.text = NSLocalizedString(@"History", @"History");
+                cell.iconView.image = [UIImage imageNamed:@"ic_menu_history"];
+                break;
+            case 2:
+                cell.titleLabel.text = NSLocalizedString(@"Search", @"Search");
+                cell.iconView.image = [UIImage imageNamed:@"ic_menu_globe"];
+                break;
+            case 3:
+                cell.titleLabel.text = NSLocalizedString(@"Friends", @"Friends");
+                cell.iconView.image = [UIImage imageNamed:@"ic_menu_friends"];
+                break;
+            default:
+                break;
+        }
     }
+    
+
     return cell;
 }
 
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    switch (indexPath.row) {
-        case 0:
-            [self performSegueWithIdentifier:@"goHome" sender:self];
-            break;
-        case 1:
-
-            break;
-        case 2:
-            [self performSegueWithIdentifier:@"goSearch" sender:self];
-            break;
-        case 3:
-            [self performSegueWithIdentifier:@"goFriends" sender:self];
-            break;
-        default:
-            break;
+    if ([PFUser currentUser]) {
+        switch (indexPath.row) {
+            case 0:
+                [self performSegueWithIdentifier:@"goHome" sender:self];
+                break;
+            case 1:
+                [self performSegueWithIdentifier:@"goProfile" sender:self];
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                [self performSegueWithIdentifier:@"goSearch" sender:self];
+                break;
+            case 4:
+                [self performSegueWithIdentifier:@"goFriends" sender:self];
+                break;
+            default:
+                break;
+        }
+    } else {
+        switch (indexPath.row) {
+            case 0:
+                [self performSegueWithIdentifier:@"goHome" sender:self];
+                break;
+            case 1:
+                
+                break;
+            case 2:
+                [self performSegueWithIdentifier:@"goSearch" sender:self];
+                break;
+            case 3:
+                [self performSegueWithIdentifier:@"goFriends" sender:self];
+                break;
+            default:
+                break;
+        }
     }
+
 }
 
 @end

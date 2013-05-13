@@ -74,6 +74,7 @@
 		843D2A631737E86200AD8F9F /* Logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D2A611737E86100AD8F9F /* Logout.png */; };
 		843D2A641737E86200AD8F9F /* Logout@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D2A621737E86100AD8F9F /* Logout@2x.png */; };
 		843D2A661738118C00AD8F9F /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 843D2A651738118C00AD8F9F /* Twitter.framework */; };
+		8443DDBA173EC4A8006DA726 /* CLMyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8443DDB9173EC4A8006DA726 /* CLMyProfileViewController.m */; };
 		84B5CA69173CE03800215670 /* Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B5CA65173CE03800215670 /* Facebook.png */; };
 		84B5CA6A173CE03800215670 /* Tweet.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B5CA66173CE03800215670 /* Tweet.png */; };
 		84B5CA6B173CE03800215670 /* Facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B5CA67173CE03800215670 /* Facebook@2x.png */; };
@@ -201,6 +202,8 @@
 		843D2A611737E86100AD8F9F /* Logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logout.png; sourceTree = "<group>"; };
 		843D2A621737E86100AD8F9F /* Logout@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logout@2x.png"; sourceTree = "<group>"; };
 		843D2A651738118C00AD8F9F /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		8443DDB8173EC4A8006DA726 /* CLMyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMyProfileViewController.h; sourceTree = "<group>"; };
+		8443DDB9173EC4A8006DA726 /* CLMyProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMyProfileViewController.m; sourceTree = "<group>"; };
 		84B5CA65173CE03800215670 /* Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook.png; sourceTree = "<group>"; };
 		84B5CA66173CE03800215670 /* Tweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tweet.png; sourceTree = "<group>"; };
 		84B5CA67173CE03800215670 /* Facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook@2x.png"; sourceTree = "<group>"; };
@@ -294,24 +297,26 @@
 				8438B9E017379CF1001F7426 /* Auth */,
 				84065EC31734120A0087F6C0 /* CLHomeViewController.h */,
 				84065EC41734120A0087F6C0 /* CLHomeViewController.m */,
-				84065ED21734251A0087F6C0 /* Reveal */,
+				84065ED21734251A0087F6C0 /* Menu */,
 				8438B99C17356DBE001F7426 /* CLSearchViewController.h */,
 				8438B99D17356DBE001F7426 /* CLSearchViewController.m */,
 				8438B9E117379E11001F7426 /* CLFriendsViewController.h */,
 				8438B9E217379E11001F7426 /* CLFriendsViewController.m */,
 				84D64C5D173B030C00A03EB7 /* CLUsersController.h */,
 				84D64C5E173B030C00A03EB7 /* CLUsersController.m */,
+				8443DDB8173EC4A8006DA726 /* CLMyProfileViewController.h */,
+				8443DDB9173EC4A8006DA726 /* CLMyProfileViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		84065ED21734251A0087F6C0 /* Reveal */ = {
+		84065ED21734251A0087F6C0 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
 				84065ED3173425320087F6C0 /* CLMenuController.h */,
 				84065ED4173425320087F6C0 /* CLMenuController.m */,
 			);
-			name = Reveal;
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		84065ED6173426EF0087F6C0 /* Prototype Cells */ = {
@@ -709,6 +714,7 @@
 				8438B9DF17379CEC001F7426 /* CLSignUpViewController.m in Sources */,
 				8438B9E317379E11001F7426 /* CLFriendsViewController.m in Sources */,
 				84D64C5F173B030C00A03EB7 /* CLUsersController.m in Sources */,
+				8443DDBA173EC4A8006DA726 /* CLMyProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

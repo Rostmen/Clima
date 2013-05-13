@@ -11,8 +11,6 @@
 #import "CLMyLocation.h"
 #import <QuartzCore/QuartzCore.h>
 
-NSInteger const Distance = 6000;
-
 @interface CLSearchViewController ()
 
 @property (nonatomic, strong) CLMyLocation *lastAnnotation;
