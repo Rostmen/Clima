@@ -16,14 +16,16 @@ typedef void (^CLWeatherFinish)(NSError *error, CLWeather *weather);
 
 @interface CLWeatherCenter : NSObject
 
-+ (CLWeatherCenter *)service;
++ (CLWeatherCenter *)sharedService;
++ (void)setSharedService:(CLWeatherCenter *)service;
++ (CLWeatherCenter *)serviceWithApiKey:(NSString *)apiKey;
 
-@property (nonatomic, strong) CLLocation *lastLocation;
 @property (nonatomic, strong) CLWeather *lastWeather;
 
-- (void)update:(CLWeatherFinish)finish;
+- (void)updateByLocation:(CLLocationCoordinate2D)location
+                  finish:(CLWeatherFinish)finish;
 - (void)searchWeather:(NSString *)query
               success:(CLWeatherCenterSuccess)success;
-+ (void)playSound: (NSString *)name;
++ (void)playSound:(NSString *)name;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "CLAppDelegate.h"
-#import "TestFlight.h"
+
 
 @implementation CLAppDelegate
 
@@ -15,56 +15,21 @@
 {
     
     // TestFlight Analytics
-    [TestFlight takeOff:@"775460fc-c740-4d49-bc8a-a84744b4d14a"];
+    // [TestFlight takeOff:@"775460fc-c740-4d49-bc8a-a84744b4d14a"];
     
-    // Google Analytics
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-    [GAI sharedInstance].dispatchInterval = 20;
-    // Optional: set debug to YES for extra debugging information.
-    [GAI sharedInstance].debug = YES;
-    // Create tracker instance.
-    [[GAI sharedInstance] trackerWithTrackingId:@"AIzaSyDBsKmsXMSmdde6j-dAcg94qeClrCTPg80"];
 
-    [CLWeatherCenter service];
+    [CLWeatherCenter serviceWithApiKey:@"37a8b9a955489c0588c5a880a1f75954"];
 
-    
-    UIImage *navBgImage = [[UIImage imageNamed:@"nav_bg"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
-    [[UINavigationBar appearance] setBackgroundImage:navBgImage forBarMetrics:UIBarMetricsDefault];
-    
-    // Parse.com
-    [Parse setApplicationId:@"KKom8hr8KZM4jldQZNqiz3uMoemdFuy9Q8GVSOHq"
-                  clientKey:@"CtIinRt625Tk4HEcXgpixnlcTTBT4J5g4GGkv9RC"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    // Social init
-    [PFFacebookUtils initializeFacebook];
-    [PFTwitterUtils initializeWithConsumerKey:@"ZI0yfXDQoNzlc1tUg3bQoQ"
-                               consumerSecret:@"NMMEx0mj4wgNgKWUbRmbT0QY9mDzZK4fvWYibN4918"];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard_iphone"
-                                                         bundle:nil];
-    
-    UIViewController *homeController = [storyboard instantiateViewControllerWithIdentifier:@"HomeScreen"];
-    UIViewController *menuController = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-    
-    PKRevealController *revealController =
-    [[PKRevealController alloc] initWithFrontViewController:homeController
-                                         leftViewController:menuController
-                                                    options:nil];
-    
-    self.window.rootViewController = revealController;
-    [self.window makeKeyAndVisible];
-    
-    
     
     return YES;
 }
 
+/*
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [PFFacebookUtils handleOpenURL:url];
 }
+ */
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

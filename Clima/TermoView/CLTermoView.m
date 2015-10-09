@@ -12,8 +12,8 @@
 
 #define DEGR 50;
 
-#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
-#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / (float)M_PI))
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * (float)M_PI)
 
 @interface CLTermoView () 
 
@@ -34,22 +34,21 @@
     return self;
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    if ([_circle superlayer]) 
+- (void)awakeFromNib {
+    if ([_circle superlayer])
         [_circle removeFromSuperlayer];
     
-    _termoSpectrum = [UIImage imageNamed:@"color_spectrum.png"];
+    _termoSpectrum = [UIImage imageNamed:@"color_spectrum"];
     
     int radius = self.frame.size.width / 2;
-    _circle = [CAShapeLayer layer];
+    self.circle = [CAShapeLayer layer];
     
     // Make a circular shape
     UIBezierPath *circlePath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius)
-                                                         radius:radius - 12
-                                                     startAngle:DEGREES_TO_RADIANS(-90)
-                                                       endAngle:DEGREES_TO_RADIANS(270)
-                                                      clockwise:NO];
+                                                              radius:radius - 12
+                                                          startAngle:DEGREES_TO_RADIANS(-90)
+                                                            endAngle:DEGREES_TO_RADIANS(270)
+                                                           clockwise:NO];
     
     // Configure the apperence of the circle
     _circle.path = [circlePath CGPath];
@@ -58,13 +57,13 @@
     _circle.lineWidth = 20;
     _circle.strokeEnd = 0.0;
     
-
+    
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius+1, radius+1)
                                                               radius:radius - 12
                                                           startAngle:DEGREES_TO_RADIANS(-90)
                                                             endAngle:DEGREES_TO_RADIANS(270)
                                                            clockwise:NO];
-
+    
     _shadow = [CAShapeLayer layer];
     _shadow.path = [shadowPath CGPath];
     _shadow.fillColor = [UIColor clearColor].CGColor;
@@ -73,18 +72,25 @@
     _shadow.strokeEnd = 0.0;
     
     // Add to parent layer
-    [self.layer addSublayer:_shadow];
-    [self.layer addSublayer:_circle];
+    //    [self.layer addSublayer:_shadow];
+    //    [self.layer insertSublayer:_gradientLayer atIndex:1];
 
+    [self.layer addSublayer:_circle];
+    
     // Add text label
     _tempLabel = [[CLAnimatedLabel alloc] initWithFrame:self.bounds];
     _tempLabel.backgroundColor = [UIColor clearColor];
     _tempLabel.textAlignment = NSTextAlignmentCenter;
-
+    
     [self addSubview:_tempLabel];
     
     _temperature = -40;
     _tempLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:45];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
 }
 
 
@@ -157,6 +163,7 @@
 
 - (void)setTemperature:(CGFloat)temperature {
     NSLog(@"%s", __FUNCTION__);
+    
     if ((int)temperature != (int)_temperature) {
         [_tempLabel animateFrom:@(_temperature) toNumber:@(temperature)];
         _temperature = temperature;

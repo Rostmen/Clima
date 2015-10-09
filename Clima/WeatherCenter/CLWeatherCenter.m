@@ -14,33 +14,44 @@ NSTimeInterval const WeatherApiTimeout = 10;
 
 NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
 
-@interface CLWeatherCenter () <CLLocationManagerDelegate>
+@interface CLWeatherCenter () 
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) id<GAITracker> tracker;
+@property (nonatomic, copy) NSString *appId;
+@property (nonatomic, copy) NSString *apiKey;
+//@property (nonatomic, strong) id<GAITracker> tracker;
 
 @end
 
 @implementation CLWeatherCenter 
 
-+ (CLWeatherCenter *)service {
-    static CLWeatherCenter *sharedInstance = nil;
-    static dispatch_once_t pred;
-    
-    dispatch_once(&pred, ^{
-        sharedInstance = [[CLWeatherCenter alloc] init];
-    });
-    
-    return sharedInstance;
+static CLWeatherCenter *sharedService = nil;
+
++ (CLWeatherCenter *)sharedService {
+    return sharedService;
 }
 
-- (id)init {
++ (void)setSharedService:(CLWeatherCenter *)service {
+    sharedService = service;
+}
+
++ (CLWeatherCenter *)serviceWithApiKey:(NSString *)apiKey {
+    CLWeatherCenter *service = [[CLWeatherCenter alloc] initWithApiKey:apiKey];
+    if (!sharedService) {
+        sharedService = service;
+    }
+    return service;
+}
+
+- (NSDictionary *)accessParameters {
+    return @{@"APPID": self.apiKey};
+}
+
+- (id)initWithApiKey:(NSString *)apiKey {
     self = [super init];
     if (self) {
-        if ([self initLocationManager]) {
-            [self configurateRestKit];
-        }
-        _tracker = [[GAI sharedInstance] defaultTracker];
+        self.apiKey = apiKey;
+        [self configurateRestKit];
+        //_tracker = [[GAI sharedInstance] defaultTracker];
     }
     return self;
 }
@@ -86,40 +97,6 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
     [[RKObjectManager sharedManager] addResponseDescriptor:weatherResponse];
 }
 
-#pragma mark - Location Stack
-
-- (BOOL)initLocationManager {
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = self;
-    _locationManager.distanceFilter = 1500.0f;
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    if ([CLLocationManager locationServicesEnabled]) {
-        [_locationManager startUpdatingLocation];
-        return YES;
-    } else {
-        NSLog(@"Location services is not enabled");
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Warning", @"Warning")
-                                                            message:NSLocalizedString(@"Location services is not enabled", @"Location services is not enabled")
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-        [alertView show];
-        return NO;
-    }
-}
-
-#pragma mark CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation* location = [locations lastObject];
-    NSLog(@"Updated: latitude %+.6f, longitude %+.6f\n",
-          location.coordinate.latitude,
-          location.coordinate.longitude);
-    _lastLocation = location;
-
-}
-
 #pragma mark - Update weather;
 
 - (void)updateByLocation:(CLLocationCoordinate2D)location
@@ -138,11 +115,10 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
     }
     
     
-    NSDictionary *params = @{
-                             @"lat": @(location.latitude),
-                             @"lon": @(location.longitude),
-                             @"lang": @"en"
-                            };
+    NSMutableDictionary *params = [self.accessParameters mutableCopy];
+    [params addEntriesFromDictionary:@{@"lat": @(location.latitude),
+                                       @"lon": @(location.longitude),
+                                       @"lang": @"en"}];
     
     [[RKObjectManager sharedManager] getObject:nil path:@"weather" parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
 
@@ -155,14 +131,14 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
                                                           userInfo:nil];
         
         
-        [_tracker sendEventWithCategory:@"Weather API"
-                             withAction:@"Checked weather"
-                              withLabel:nil
-                              withValue:nil];
+//        [_tracker sendEventWithCategory:@"Weather API"
+//                             withAction:@"Checked weather"
+//                              withLabel:nil
+//                              withValue:nil];
         
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Weather is not received!");
-        [_tracker sendException:NO withNSError:error];
+        //[_tracker sendException:NO withNSError:error];
         if (finish) finish (error, nil);
     }];
 }
@@ -170,31 +146,29 @@ NSString *const WeatherDidChangeNotification = @"WeatherDidChangeNotification";
 - (void)searchWeather:(NSString *)query
               success:(CLWeatherCenterSuccess)success {
     
-    NSDictionary *params = @{
+    NSMutableDictionary *params = [self.accessParameters mutableCopy];
+    [params addEntriesFromDictionary:@{
                              @"q": query,
                              @"lang": @"en"
-                            };
+                            }];
     
     [[RKObjectManager sharedManager] getObject:nil path:@"weather" parameters:params success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
         CLWeather *weather = [mappingResult firstObject];
         
         if (success) success(weather);
         
-        [_tracker sendEventWithCategory:@"Weather API"
-                             withAction:@"Find weather"
-                              withLabel:nil
-                              withValue:nil];
+//        [_tracker sendEventWithCategory:@"Weather API"
+//                             withAction:@"Find weather"
+//                              withLabel:nil
+//                              withValue:nil];
         
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Weather is not received!");
-        [_tracker sendException:NO withNSError:error];
+//        [_tracker sendException:NO withNSError:error];
     }];
 }
 
-- (void)update:(CLWeatherFinish)finish {
-    if (_lastLocation)
-        [self updateByLocation:_lastLocation.coordinate finish:finish];
-}
+
 
 #pragma mark - Sound
 
